@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "TestSpy",
+  "description": "🤔 What A/B tests or personalization campaigns are running on this page? TestSpy tells you.",
+  "version": "1.0",
+  "web_accessible_resources": [
+    "src/content-script.js"
+  ],
+  "browser_action": {
+    "default_icon": "images/icon128.png",
+    "default_title": "TestSpy - click to spy",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "permissions": [
+    "http://*/",
+    "https://*/",
+    "activeTab"
+  ]
+}
