@@ -1,0 +1,6 @@
+import '../img/icon128.png'
+import '../img/icon48.png'
+import '../img/classic.jpeg'
+import '../img/optimizelyX.png'
+import '../img/adobeTest.jpg'
+import '../img/googleOptimize.png'
