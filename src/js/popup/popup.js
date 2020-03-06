@@ -176,8 +176,7 @@ export function updateDom(obj) {
             var section = document.createElement('div')
             section.innerHTML = data;
             document.querySelector('#container').appendChild(section);
-
-            evaluateAccordian();
         }
     }
+    evaluateAccordian();
 }

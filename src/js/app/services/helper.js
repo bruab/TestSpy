@@ -145,7 +145,7 @@ export function getGoogleOptimizeExperimentId() {
     } else {
         var fields = cookie.split('.');
         window.TestSpy.googleOptmize['activeExperiments'] = [];
-        window.TestSpy.googleOptmize.activeExperiments.push({experimentName:'Not Found',experimentID:fields[2]})
+        window.TestSpy.googleOptmize.activeExperiments.push({experimentName:'Not Found',experimentID:fields[2] || 'Not Found'})
         return fields[2];
     }
 }
