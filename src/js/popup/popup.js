@@ -115,7 +115,6 @@ export function updateDom(obj) {
                       </div>
                   </div>
                   <div class="header-left-contant">
-                      <h1>Tool</h1>
                       <h2>${key}</h2>
                   </div>
                   <div class="list clearfix">
