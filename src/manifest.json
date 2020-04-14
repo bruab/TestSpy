@@ -22,8 +22,5 @@
     "tabs",
     "storage",
     "cookies"
-  ],
-  "web_accessible_resources": [
-    "contentScript.js"
   ]
 }
