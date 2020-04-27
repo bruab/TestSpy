@@ -102,12 +102,27 @@ export function evaluateAccordian() {
     $('.list-inner-item:eq(0)').show();
 }
 
+export function atLeastOneToolPresent(obj){
+    var result = false;
+
+    for (var i in obj) {
+        if (obj[i].present === true) {
+            result = true;
+            break;
+        }
+    }
+
+    return result;
+}
+
 // updating dom
 export function updateDom(obj) {
-    for (const key in obj) {
-        if (obj[key].present) {
 
-            var data = `<div class="row">
+    if (atLeastOneToolPresent(obj)) {
+        for (const key in obj) {
+            if (obj[key].present) {
+
+                var data = `<div class="row">
               <div class="box-item clearfix">
                   <div class="logo-box">
                       <div class="logo">
@@ -126,7 +141,7 @@ export function updateDom(obj) {
                       </div>
                       <diV class="list-inner-item">
                           <div class="inner-text">
-                                  ${obj[key].activeExperiments ? createExpiremtList(obj[key].activeExperiments) :'<ul><li>No Active Expirement Found</li></ul>'}
+                                  ${obj[key].activeExperiments && obj[key].activeExperiments.length ? createExpiremtList(obj[key].activeExperiments) :'<ul><li>No Active Expirement Found</li></ul>'}
                           </div>
                       </diV>
                       <div class="list-item">
@@ -137,7 +152,7 @@ export function updateDom(obj) {
                       </div>
                       <diV class="list-inner-item">
                           <div class="inner-text">
-                                  ${obj[key].activeExperiments ? createVariationList(obj[key].activeExperiments) :'<ul><li>No Active Expirement Found</li></ul>'}
+                                  ${obj[key].activeExperiments && obj[key].activeExperiments.length ? createVariationList(obj[key].activeExperiments) :'<ul><li>No Active Expirement Found</li></ul>'}
                           </div>
                       </diV>
                       <div class="list-item">
@@ -170,13 +185,19 @@ export function updateDom(obj) {
               </div>
           </div>`
 
-          if(document.querySelector('.err')){
-            document.querySelector('.err').remove()
-          }
-            var section = document.createElement('div')
-            section.innerHTML = data;
-            document.querySelector('#container').appendChild(section);
+                if (document.querySelector('.err')) {
+                    document.querySelector('.err').remove()
+                }
+                var section = document.createElement('div')
+                section.innerHTML = data;
+                document.querySelector('#container').appendChild(section);
+            }
+        }
+        evaluateAccordian();
+    } else {
+        if (document.querySelector('.err')) {
+            document.querySelector('.err h1').classList.add('bmNoPlatform');
+            document.querySelector('.err h1').textContent = 'No testing platform identified';
         }
     }
-    evaluateAccordian();
 }
