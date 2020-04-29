@@ -141,7 +141,7 @@ export function updateDom(obj) {
                       </div>
                       <diV class="list-inner-item">
                           <div class="inner-text">
-                                  ${obj[key].activeExperiments && obj[key].activeExperiments.length ? createExpiremtList(obj[key].activeExperiments) :'<ul><li>No Active Expirement Found</li></ul>'}
+                                  ${obj[key].activeExperiments && obj[key].activeExperiments.length ? createExpiremtList(obj[key].activeExperiments) :'<ul><li>No Active Experiment Found</li></ul>'}
                           </div>
                       </diV>
                       <div class="list-item">
@@ -152,7 +152,7 @@ export function updateDom(obj) {
                       </div>
                       <diV class="list-inner-item">
                           <div class="inner-text">
-                                  ${obj[key].activeExperiments && obj[key].activeExperiments.length ? createVariationList(obj[key].activeExperiments) :'<ul><li>No Active Expirement Found</li></ul>'}
+                                  ${obj[key].activeExperiments && obj[key].activeExperiments.length ? createVariationList(obj[key].activeExperiments) :'<ul><li>No Active Experiment Found</li></ul>'}
                           </div>
                       </diV>
                       <div class="list-item">

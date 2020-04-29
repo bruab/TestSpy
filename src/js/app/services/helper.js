@@ -141,7 +141,7 @@ export function getActivePages() {
 export function getGoogleOptimizeExperimentId() {
     var cookie = getCookieValue('_gaexp');
     if (cookie == undefined) {
-        return "No expirement is Running";
+        return "No Experiment is Running";
     } else {
         var fields = cookie.split('.');
         window.TestSpy.googleOptmize['activeExperiments'] = [];
