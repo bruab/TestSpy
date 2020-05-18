@@ -25,7 +25,7 @@ checkGoogleOptimize();
 // after registering it in chrome  replace it with given by chrome
 // https://developer.chrome.com/extensions/messaging
 
-document.cookie = cookieName+"="+JSON.stringify(window.TestSpy)
+document.cookie = cookieName+"="+JSON.stringify(window.TestSpy);+'Secure;'
 
 function logGreeting() {
     log('TestSpy');
