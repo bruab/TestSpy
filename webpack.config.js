@@ -25,6 +25,7 @@ var options = {
     options: path.join(__dirname, "src", "js", "options.js"),
     background: path.join(__dirname, "src", "js", "background.js"),
     contentScript: path.join(__dirname, "src", "js", "content-script.js"),
+    adobeScript: path.join(__dirname, "src", "js", "adobeScript.js"),
   },
   output: {
     path: path.join(__dirname, "build"),
