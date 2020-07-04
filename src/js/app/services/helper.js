@@ -154,3 +154,60 @@ export function getGoogleOptimizeVariationInfo(experimentID) {
     window.TestSpy.googleOptmize['activeExperiments'][0].variation = {id : JSON.stringify(window.google_optimize && window.google_optimize.get(experimentID)) || 'No variation is running', name:'Not Found'};
     return window.google_optimize && window.google_optimize.get(experimentID) || 'No variation is running';
 }
+
+
+export const FEHelper = {
+    onLoadAdobeEvent: function (trigger, delayInterval, delayTimeout) {
+      var interval = setInterval(function () {
+        if (document && document.querySelector && document.querySelector('body')) {
+          clearInterval(interval);
+          trigger();
+        }
+      }, delayInterval);
+      setTimeout(function () {
+        clearInterval(interval);
+      }, delayTimeout);
+    },
+    onPopupLoaded: function(trigger, delayInterval, delayTimeout){
+        var interval = setInterval(function () {
+            if (document && document.querySelector && document.querySelector('.bm-inr-detail')) {
+              clearInterval(interval);
+              trigger();
+            }
+          }, delayInterval);
+          setTimeout(function () {
+            clearInterval(interval);
+          }, delayTimeout);
+    },
+    live: function (selector, event, callback, context) {
+        /****Helper Functions****/
+        // helper for enabling IE 8 event bindings
+        function addEvent(el, type, handler) {
+          if (el.attachEvent) el.attachEvent('on' + type, handler);
+          else el.addEventListener(type, handler);
+        }
+        // matches polyfill
+        this.Element && function (ElementPrototype) {
+          ElementPrototype.matches = ElementPrototype.matches ||
+            ElementPrototype.matchesSelector ||
+            ElementPrototype.webkitMatchesSelector ||
+            ElementPrototype.msMatchesSelector ||
+            function (selector) {
+              var node = this,
+                nodes = (node.parentNode || node.document).querySelectorAll(selector),
+                i = -1;
+              while (nodes[++i] && nodes[i] != node);
+              return !!nodes[i];
+            };
+        }(Element.prototype);
+        // live binding helper using matchesSelector
+        function live(selector, event, callback, context) {
+          addEvent(context || document, event, function (e) {
+            var found, el = e.target || e.srcElement;
+            while (el && el.matches && el !== context && !(found = el.matches(selector))) el = el.parentElement;
+            if (found) callback.call(el, e);
+          });
+        }
+        live(selector, event, callback, context);
+      }
+  }
