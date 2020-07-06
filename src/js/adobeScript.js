@@ -3,7 +3,7 @@ import { FEHelper } from "./app/services/helper";
 import { sliderHTML, sliderCss } from "./app/services/constant";
 
 // adding popup onPage loader if editor is enabled
-function addpopup() {
+export function addpopup() {
   function init() {
     var slider = document.createElement("div");
     var attr = document.createAttribute("style");

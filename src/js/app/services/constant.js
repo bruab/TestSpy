@@ -24,9 +24,22 @@ export const sliderHTML = `<div class="bm-inr-detail">
     <h2 class="bm-pop-title">
     <img src="https://bm-test-dev.s3.us-east-2.amazonaws.com/cws/extension/testSpy.svg"> Test Spy</h2>
     <div class="bm-pop-content">
+    <p class='err'>No Optimizely, Google Optimize, or Adobe Test & Target campaigns detected on this page.<p>
     </div>
 </div>
 </div>`;
+
+export const instuctionsHTML = `<div class="bm-inr-detail">
+<div class="bm-close-pop">Test Spy</div>
+<div class="bm-inr-content">
+    <h2 class="bm-pop-title">
+    <img src="https://bm-test-dev.s3.us-east-2.amazonaws.com/cws/extension/testSpy.svg"> Test Spy</h2>
+    <div class="bm-pop-content">
+     <p>Click to enable TestSpy🔎 for the current page. Then refresh  🔄  to see Test Data 🏭<p>
+    </div>
+</div>
+</div>`;
+
 
 export const sliderCss = `
 html body #bm-testspy.bm-popup.bm-slidein{
