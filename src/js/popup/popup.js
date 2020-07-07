@@ -30,6 +30,37 @@ export default function () {
     });
 }
 
+export function injectInstruction() {
+  function generateInjectScript(filePath, tag) {
+    return (
+      `(function () {
+      var node = document.getElementsByTagName('` +
+      tag +
+      `')[0];
+      var script = document.createElement('script');
+      script.setAttribute('type', 'text/javascript');
+      script.setAttribute('src', '` +
+      filePath +
+      `');
+      node.appendChild(script);
+    })()`
+    );
+  }
+
+  // Watch for clicks to 'Click Me' and then
+  // inject src/content-script.js, which logs stuff
+    var button = document.getElementById("container");
+    /* eslint-disable no-undef */
+    var injectURL = chrome.extension.getURL("instructions.js");
+    var injectCode = generateInjectScript(injectURL, "body");
+    // button.addEventListener('click', () => {
+    chrome.tabs.executeScript({
+      code: injectCode,
+      // });
+    });
+}
+
+
 export function createExpiremtList(arr) {
   var exHtml = `<table class="blueTable">
   <thead> <tr>
@@ -200,8 +231,8 @@ export function updateDom(obj) {
               </div>
           </div>`;
 
-        if (document.querySelector(".err")) {
-          document.querySelector(".err").remove();
+        if (document.querySelector('#bm-testspy .bm-inr-content .err')) {
+          document.querySelector('#bm-testspy .bm-inr-content .err').remove();
         }
         var section = document.createElement("div");
         section.innerHTML = data;
@@ -278,8 +309,8 @@ export function updateDomForAdobe(arr) {
               </div>
           </div>`;
 
-  if (document.querySelector(".err")) {
-    document.querySelector(".err").remove();
+  if (document.querySelector('#bm-testspy .bm-inr-content .err')) {
+    document.querySelector('#bm-testspy .bm-inr-content .err').remove();
   }
   var section = document.createElement("div");
   section.innerHTML = data;

@@ -1,9 +1,11 @@
 import "../css/popup.css";
-import popup from "./popup/popup";
+import popup, { injectInstruction} from "./popup/popup";
 
 chrome.storage.local.get('enabled', data => {
     if (data.enabled) {
         popup();
+    }else{
+        injectInstruction();
     }
 });
 

@@ -25,6 +25,7 @@ if(document.querySelector('.bm-popup.do_no_popunder').style.display == 'block'){
       }
 }
 
+
 // restrict script injection if data is already there
 if(!document.querySelector('.box-item')){
     window.TestSpy = tesSpyObj;
