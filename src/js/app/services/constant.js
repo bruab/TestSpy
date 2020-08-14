@@ -85,8 +85,10 @@ html body #bm-testspy.bm-popup {
   box-sizing: border-box;
   width: 100%;
   height: calc(100% - 1px);
-  z-index: 1018;
-  outline: none;
+  z-index: 999999999999 !important;
+  border: none !important;
+  border-radius: 0px !important;
+  outline: none !important;
   opacity: 0;
   /* background-color: transparent;
   background: transparent; */
@@ -220,7 +222,6 @@ html body #bm-testspy .bm-inr-content .blueTable thead th {
 }
   html body #bm-testspy .bm-inr-content .list-item h3 {
     font-size: 17px !important;
-    margin-bottom: 0px;
     position: relative;
     line-height: 1.7;
     padding: 5px 20px;
@@ -234,6 +235,8 @@ html body #bm-testspy .bm-inr-content .blueTable thead th {
     cursor: pointer !important;
     text-transform: capitalize !important;
     font-weight: 600;
+    margin: 0px !important;
+    letter-spacing: 0px !important;
   }
   html body #bm-testspy .list-item {
     position: relative;
@@ -294,11 +297,13 @@ html body #bm-testspy .bm-inr-content .list-item.spy-active h3{
       margin-right: 0px;
       margin-bottom: 0px !important;
       margin-left: 25px !important;
+      min-height: 30px !important;
   }
   html body #bm-testspy .bm-inr-content .inner-text ul li {
       margin: 0px !important;
       padding: 5px 0px !important;
       list-style: disc !important;
+      width: calc(100% - 1px) !important;
   }
   html body #bm-testspy .bm-inr-detail h2.bm-pop-title img {
       width: 29px;
@@ -309,6 +314,10 @@ html body #bm-testspy .bm-inr-content .list-item.spy-active h3{
       padding-top: 15px;
       border-top: 2px solid #eee;
   }
+  html body #bm-testspy.bm-popup .bm-pop-content p img {
+    width: 100%;
+    height: 100%;
+}
   html body #bm-testspy.bm-popup .bm-pop-content p {
       margin-bottom: 10px;
       text-align: left;
