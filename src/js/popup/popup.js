@@ -243,9 +243,8 @@ export function updateDom(obj) {
   } else {
     evaluateAccordian();
     if (document.querySelector(".err")) {
-      document.querySelector(".err h1").classList.add("bmNoPlatform");
-      document.querySelector(".err h1").textContent =
-        "No testing platform identified";
+      document.querySelector(".err h1") && document.querySelector(".err h1").classList.add("bmNoPlatform");
+      document.querySelector(".err h1") && (document.querySelector(".err h1").textContent = "No testing platform identified");
     }
   }
 }
