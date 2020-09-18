@@ -13,3 +13,11 @@ Tells you what A/B tests and personalization campaigns are running on a page.
 
 - Clone this repo
 - Load as 'unpacked' extension in Chrome
+
+**To update:**
+
+- Increment version in `src/manifest.json`
+
+**To build:**
+
+- Run `npm run build`
